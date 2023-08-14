@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-img src="../../assets/goals-wishlist.svg"></ion-img>
+  <h1>Wishlist</h1>
+  <ion-text class="ion-text-center">
+    <p>Faça sua wishlist como meta de conquistas com a ajuda do Super Save!</p>
+  </ion-text>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="handleAddItem()">
+    <ion-list lines="none">
+      <ion-item *ngFor="let item of wishlist; let i = index">
+        <ion-grid class="wishlistGrid ion-no-padding">
+          <ion-row>
+            <!-- Coluna para a imagem -->
+            <ion-col size="4">
+              <div class="image-container">
+                <ion-img class="wishimg" src="../../assets/moedas.svg"></ion-img>
+              </div>
+            </ion-col>
+        
+            <!-- Coluna para as informações -->
+            <ion-col size="8">
+              <!-- Nome do produto -->
+              <h4 id="nmProduct">{{nmProduct}}</h4>
+        
+              <!-- Nome da loja -->
+              <p id="nmStore">{{nmStore}}</p>
+
+              <ion-row>
+                <ion-col>
+                  <div class="price-container" style="margin-left: 8px;">
+                    <div class="bordered-box">
+                      <p>{{vlProduct}}</p>
+                    </div>
+                    <p class="title">Goal</p>
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="price-container">
+                    <div class="bordered-box">
+                      <p>{{vlInvested}}</p>
+                    </div>
+                    <p class="title">Investido</p>
+                  </div>
+                </ion-col>
+              </ion-row>
+
+              <ion-range 
+                [(ngModel)]="progressPercentage" 
+                [ngModelOptions]="{ standalone: true }" 
+                class="no-thumb" 
+                min="0" 
+                max="100"
+                [label]="porcentageValue">
+              </ion-range>
+
+              <!-- Ações -->
+              <div class="button-container">
+                <ion-button fill="clear" slot="end">
+                  <ion-icon name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button fill="clear" slot="end">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <!-- Mensagem de wishlist vazia -->
+      <div *ngIf="wishlist.length === 0" class="emptyWishlist">
+        <ion-text>
+          Clique no botão de adicionar e comece a organizar seus objetivos.
+        </ion-text>
+      </div>
+    </ion-list>
+
+    <ion-button class="addButton" type="submit">
+      <ion-icon name="add" color="white"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>

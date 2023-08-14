@@ -1,0 +1,35 @@
+ion-tabs {
+    background-color: #FAFAFA;
+}
+
+ion-tab-bar {
+    height: 65px;
+    background-color: #008158;
+    border-radius: 10px 10px 0px 0px;
+}
+
+ion-tab-button {
+    background-color: #008158;
+}
+
+ion-tab-button {
+    ion-icon {
+      height: 25px;
+      color: #FAFAFA;
+    }
+  
+    &.selected ion-icon {
+      color: #008158;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25px;
+      height: 25px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px #FFFFFF;
+      pointer-events: none;
+    }
+  }
+  

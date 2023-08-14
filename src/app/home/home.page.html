@@ -1,0 +1,80 @@
+<ion-content [fullscreen]="true">
+  <div class="half-background">
+    <div class="top-half">
+      <!-- Conteúdo da primeira metade -->
+      <ion-item class="user-payment" lines="none">
+        <ion-label>
+          <h2>Saldo em contas</h2>
+          <div class="available-money">
+            <h1 [ngClass]="{ 'hidden-money': !showRealValue, 'original-money': showRealValue }">
+              R$ {{getMoneyToShow()}}
+            </h1>
+            <ion-button fill="clear" (click)="toggleMoneyVisibility()"> 
+              <ion-icon [name]="currentIcon"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-label>
+      </ion-item>
+
+      <ion-img src="../../assets/menina-mainpage.svg"></ion-img>
+    </div>
+
+
+    <div class="bottom-half">
+      <ion-item lines="none" color="#b0d8cb">
+        <ion-avatar slot="start">
+          <img alt="Foto de perfil do usuário" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label><h3>{{name}}</h3></ion-label>
+      </ion-item>
+
+      <form (ngSubmit)="handleAddItem()">
+        <!-- RECEITAS -->
+        <ion-list lines="none">
+          <h3>Receitas</h3>
+          <ion-item *ngFor="let item of incomes; let i = index">
+            <p>{{ item[0] }} - R$ {{ item[1] | number: '1.2-2' }}</p>
+            <div slot="end">
+              <ion-button fill="clear" (click)="editItem(i, 1)">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" (click)="removeItem(i, 1)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+
+          <!-- Mensagem de receitas vazias -->
+          <ion-item *ngIf="incomes.length === 0">
+            <p class="emptyState">Nenhuma receita encontrada. Adicione seus ganhos ou deixe seu salário fixo em configurações de usuário.</p>
+          </ion-item>
+        </ion-list>
+
+        <!-- DESPESAS -->
+        <ion-list lines="none">
+          <h3>Despesas</h3>
+          <ion-item *ngFor="let item of expenses; let i = index">
+            <p>{{ item[0] }} - R$ {{ item[1] | number: '1.2-2' }}</p>
+            <div slot="end">
+              <ion-button fill="clear" (click)="editItem(i, 2)">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" (click)="removeItem(i, 2)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+
+          <!-- Mensagem de despesas vazias -->
+          <ion-item *ngIf="expenses.length === 0">
+            <p class="emptyState">Nenhuma despesa encontrada. Adicione uma despesa.</p>
+          </ion-item>
+        </ion-list>
+
+        <ion-button class="addButton" type="submit">
+          <ion-icon name="add" color="white"></ion-icon>
+        </ion-button>
+      </form>
+    </div>
+  </div>
+</ion-content>

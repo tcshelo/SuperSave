@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-button fill="clear" class="btnBack" (click)="closeModal()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-button>
+
+  <ion-radio-group [(ngModel)]="editedType">
+    <h2 aria-expanded="true">Tipo</h2>
+    <ion-item lines="none">
+      <ion-label>Receita</ion-label>
+      <ion-radio name="option" [value]="1" [disabled]="true"></ion-radio>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Despesa</ion-label>
+      <ion-radio name="option" [value]="2" [disabled]="true"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <h2 aria-expanded="true">Nome</h2>
+  <ion-item>
+    <ion-input type="text" name="itemName" [(ngModel)]="editedName"></ion-input>
+  </ion-item>
+
+  <h2 aria-expanded="true">Valor</h2>
+  <ion-item>
+    <ion-input type="number" name="itemValue" [(ngModel)]="editedValue"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" type="submit" color="primary" (click)="saveEdit()">
+    <ion-icon name="create-outline"></ion-icon> Salvar
+  </ion-button>
+
+</ion-content>

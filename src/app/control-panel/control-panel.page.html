@@ -1,0 +1,41 @@
+<ion-header collapse="condense">
+  <ion-img src="../../assets/aviao.svg"></ion-img>
+  <h1>Painel de controle</h1>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <!-- Cabeçalho da tabela  -->
+    <ion-row class="grid-header">
+      <ion-col class="borderRight" size="3">Período</ion-col>
+      <ion-col class="borderRight" size="6">Controle</ion-col>
+      <ion-col size="3">Saldo</ion-col>
+    </ion-row>
+
+    <!-- Loop para adicionar linhas para cada período  -->
+    <ion-row *ngFor="let periodo of periodos" class="grid-row">
+      <!-- Coluna do período  -->
+      <ion-col class="borderRight period" size="3">{{ periodo.periodo }}</ion-col>
+
+      <!-- Coluna do controle de receitas e despesas  -->
+      <ion-col class="borderRight" size="6">
+        <!-- Receitas -->
+        <ion-item class="control">
+          <ion-label>Receitas</ion-label>
+          <ion-note slot="end">R$ {{ periodo.receitas }}</ion-note>
+        </ion-item>
+
+        <!-- Despesas -->
+        <ion-item class="control" lines="none">
+          <ion-label>Despesas</ion-label>
+          <ion-note slot="end">R$ {{ periodo.despesas }}</ion-note>
+        </ion-item>
+      </ion-col>
+
+      <!-- Coluna do saldo -->
+      <ion-col class="total" size="3">
+        <ion-note [color]="getSaldoColor(periodo.saldo)">R$ {{ periodo.saldo }}</ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

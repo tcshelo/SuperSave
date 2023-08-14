@@ -1,0 +1,47 @@
+<ion-content class="ion-padding" scrollY="false">
+  <div class="container">
+    <ion-img class="logo" src="../../assets/logo.png" alt="Logo do SuperSave"></ion-img>
+
+    <div *ngIf="showLoginContent">
+      <ion-text>
+        <p class="ion-text-center">Comece a administrar suas economias com sucesso!</p>
+      </ion-text>
+      <ion-button class="btnLogin" (click)="onLoginClick()">Fazer login</ion-button>
+
+      <ion-button class="btnRegister" (click)="openRegister()" color="secondary">Criar conta</ion-button>
+
+      <ion-img class="moedas" src="../../assets/moedas.svg" alt="Moedas"></ion-img>
+    </div>
+
+    <div *ngIf="!showLoginContent" class="loginContent">
+      <ion-text>
+        <p class="ion-text-center">Faça seu login abaixo</p>
+      </ion-text>
+      <ion-item lines="none">
+        <ion-input type="email" [(ngModel)]="email" placeholder="E-mail"></ion-input>
+      </ion-item>
+    
+      <ion-item lines="none">
+        <ion-input type="password" [(ngModel)]="password" placeholder="Senha"></ion-input>
+      </ion-item>
+
+      <ion-button (click)="login()">
+        Entrar
+      </ion-button>
+
+      <ion-button (click)="onBackClick()" fill="clear" class="btnContentLogin">
+        Esqueci a senha
+      </ion-button>
+
+      <ion-button (click)="onBackClick()" fill="clear" class="btnContentLogin">
+        Voltar
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <p>© SuperSave</p>
+  </ion-toolbar>
+</ion-footer>

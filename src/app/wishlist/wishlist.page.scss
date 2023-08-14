@@ -1,0 +1,174 @@
+ion-content {
+    --ion-background-color: #FAFAFA;
+    height: 100%;
+}
+
+ion-header ion-img {
+    width: 220px;
+    margin: 25px auto;
+    --ion-box-shadow: none;
+}
+
+h1 {
+    color: #353D3A;
+    font-size: 20px !important;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+ion-text p { 
+    padding: 0 30px;
+    color: #6E7774;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.addButton {
+    --background: #008158;
+    --border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 86px;
+    right: 30px;
+}
+  
+.addButton ion-icon {
+    font-size: 70px;
+}
+
+ion-item {
+    --ion-background-color: #B0D8CB;
+    border-radius: 17px 17px;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container {
+    background-color: #FAFAFA;
+    height: 155px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #008158;
+}
+
+.wishlistGrid {
+    margin: 20px 0 0 10px;
+}
+
+.wishimg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#nmProduct {
+    font-size: 16px;
+    color: #353D3A;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 0 0 4px 5px;
+}
+
+#nmStore {
+    margin: 0;
+    font-size: 13px;
+    color: #353D3A;
+    font-weight: 400;
+    padding: 0 14px;
+}
+
+#vlProduct {
+    color: #353D3A;
+    font-size: 15px;
+    padding: 0 14px;
+    margin: 10px 0;
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+  
+.bordered-box {
+    border: 1px solid #FAFAFA;
+    padding: 5px;
+    width: fit-content;
+    min-width: 70px;
+}
+
+.bordered-box p {
+    color: #353D3A;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.title {
+    color: #353D3A;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+ion-icon {
+    color: #6E7774;
+    font-size: 20px;
+}
+
+ion-grid {
+    width: 100%;
+}
+
+ion-range {
+    padding: 0;
+}
+
+ion-range.no-thumb {
+    --bar-background: #FAFAFA;
+    --bar-background-active: #75AE2C;
+    --bar-height: 5px;
+    --knob-background: transparent;
+    --knob-box-shadow: none;
+    pointer-events: none;
+    margin-left: 15px;
+    width: 85%;
+}
+
+ion-item.item-content {
+    --ion-background-color: #B0D8CB;
+    border-radius: 17px 17px;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}
+  
+div.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.emptyWishlist {
+    background-color: #E6F2EE;
+    border-radius: 17px 17px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    color: #6E7774;
+    padding: 10px;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}

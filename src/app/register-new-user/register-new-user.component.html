@@ -1,0 +1,111 @@
+<ion-content scrollY="false">
+  <ion-header>
+    <ion-range 
+      [(ngModel)]="stepPercentage" 
+      [ngModelOptions]="{ standalone: true }" 
+      class="no-thumb" 
+      min="0"
+      max="5"
+    >
+    </ion-range>
+
+    <ion-button fill="clear" class="btnBack" (click)="stepBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-header>
+
+  <div class="step1" *ngIf="currentStep === 1">
+
+    <ion-icon name="person-outline"></ion-icon>
+    <h3>Vamos começar!</h3>
+
+    <ion-item lines="none">
+      <ion-input type="text" [(ngModel)]="userName" placeholder="Nome completo"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input type="email" [(ngModel)]="userEmail" placeholder="Digite seu e-mail"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input type="email" [(ngModel)]="userEmailCheck" placeholder="Digite o e-mail novamente"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="nextStep(1)">
+      <ion-label>
+        >
+      </ion-label> 
+    </ion-button>
+  </div>
+
+  <div class="step2" *ngIf="currentStep === 2">
+
+    <ion-icon name="at" class="iconStep2"></ion-icon>
+    <h3>Escolha um nome de usuário</h3>
+
+    <ion-item lines="none">
+      <ion-input type="text" [(ngModel)]="user" placeholder="Usuário">
+        <ion-icon name="at-outline"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-button (click)="nextStep(2)">
+      <ion-label>
+        >
+      </ion-label> 
+    </ion-button>
+  </div>
+
+  <div class="step3" *ngIf="currentStep === 3">
+
+    <ion-icon name="key-outline"></ion-icon>
+    <h3>Crie uma senha segura abaixo</h3>
+
+    <ion-item lines="none">
+      <ion-input type="password" [(ngModel)]="userPassword" placeholder="Digite uma senha"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input type="password" [(ngModel)]="userPasswordCheck" placeholder="Digite a senha novamente"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="nextStep(3)">
+      <ion-label>
+        >
+      </ion-label>
+    </ion-button>
+  </div>
+
+  <div class="step4" *ngIf="currentStep === 4">
+    <ion-icon name="logo-usd" class="iconStep2"></ion-icon>
+    <h3>Defina seu salário</h3>
+  
+    <ion-item lines="none">
+      <ion-input type="number" [(ngModel)]="userPayment" placeholder="1000,00">
+        <ion-icon name="logo-usd"></ion-icon>
+      </ion-input>
+    </ion-item>
+
+    <ion-button (click)="nextStep(4)">
+      <ion-label>
+        >
+      </ion-label>
+    </ion-button>
+  </div>
+
+  <div class="step5" *ngIf="currentStep === 5">
+    <h3>Escolha um avatar</h3>
+  
+    <ion-grid class="center-content">
+      <ion-row>
+        <ion-col size="4" *ngFor="let avatar of avatars">
+          <ion-img [src]="avatar" (click)="selectAvatar(avatar)" [ngClass]="{ 'selected': avatar === selectedAvatar }"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-button expand="full" (click)="register()" [disabled]="!selectedAvatar">Cadastrar</ion-button>
+  </div>
+  
+  
+</ion-content>
