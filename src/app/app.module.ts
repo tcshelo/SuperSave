@@ -11,10 +11,10 @@ import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 
-import { AddItemComponent } from '../app/add-item/add-item.component';
-import { EditItemComponent } from './edit-item/edit-item.component';
-import { AddWishComponent } from './add-wish/add-wish.component';
-import { EditWishComponent } from './edit-wish/edit-wish.component';
+import { AddItemComponent } from './home/add-item/add-item.component';
+import { EditItemComponent } from './home/edit-item/edit-item.component';
+import { AddWishComponent } from './wishlist/add-wish/add-wish.component';
+import { EditWishComponent } from './wishlist/edit-wish/edit-wish.component';
 import { LoginPageModule } from './login/login.module';
 import { RegisterNewUserComponent } from './register-new-user/register-new-user.component';
 import { Helpers } from './helpers/helpers';

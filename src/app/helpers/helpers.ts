@@ -59,26 +59,59 @@ export class Helpers {
   setUserData(data: any) {
     this.userData = data;
   }
-  
 
-  // async get() {
-  //   const localStorageData = localStorage.getItem('@detailUser');
+  getMonths() {
+    const months = [
+      {
+        text: 'Janeiro',
+        value: 'Janeiro',
+      },
+      {
+        text: 'Fevereiro',
+        value: 'Fevereiro',
+      },
+      {
+        text: 'Março',
+        value: 'Março',
+      },
+      {
+        text: 'Abril',
+        value: 'Abril',
+      },
+      {
+        text: 'Maio',
+        value: 'Maio',
+      },
+      {
+        text: 'Junho',
+        value: 'Junho',
+      },
+      {
+        text: 'Julho',
+        value: 'Julho',
+      },
+      {
+        text: 'Agosto',
+        value: 'Agosto',
+      },
+      {
+        text: 'Setembro',
+        value: 'Setembro',
+      },
+      {
+        text: 'Outubro',
+        value: 'Outubro',
+      },
+      {
+        text: 'Novembro',
+        value: 'Novembro',
+      },
+      {
+        text: 'Dezembro',
+        value: 'Dezembro',
+      }
+    ];
 
-  //   if (localStorageData !== null) {
-  //     try {
-  //       const userData = JSON.parse(localStorageData);
-  //       const uid = userData.uid; 
-
-  //       const usersCollectionRef = collection(db, 'users');
-  //       const querySnapshot = await getDocs(query(usersCollectionRef, where('oid', '==', uid)));
-  //       const userDocSnapshot = querySnapshot.docs[0];
-  //       const userTbData = userDocSnapshot.data();
-
-  //       return userTbData;
-  //     } catch (error) {
-  //       console.log("Erro ao carregar os dados do usuário:", error);
-  //     }
-  //   }
-  //   return null;
-  // }
+    return months;
+  }
 }

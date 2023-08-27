@@ -52,7 +52,7 @@ ion-col {
 }
 
 .control {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .total {
@@ -63,6 +63,18 @@ ion-col {
     white-space: nowrap;
     overflow: hidden;
     font-weight: 500;
-  }
+}
   
-  
+.emptyPeriods {
+    background-color: #E6F2EE;
+    border-radius: 17px 17px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    color: #6E7774;
+    padding: 10px;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}  

@@ -23,7 +23,7 @@
     <div class="bottom-half">
       <ion-item lines="none" color="#b0d8cb">
         <ion-avatar slot="start">
-          <img alt="Foto de perfil do usuário" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img alt="Foto de perfil do usuário" src="{{avatar}}" />
         </ion-avatar>
         <ion-label><h3>{{name}}</h3></ion-label>
       </ion-item>
@@ -38,7 +38,7 @@
               <ion-button fill="clear" (click)="editItem(i, 1)">
                 <ion-icon name="create-outline"></ion-icon>
               </ion-button>
-              <ion-button fill="clear" (click)="removeItem(i, 1)">
+              <ion-button fill="clear" (click)="removeItem(i, 1, item[1])">
                 <ion-icon name="trash-outline"></ion-icon>
               </ion-button>
             </div>
@@ -59,7 +59,7 @@
               <ion-button fill="clear" (click)="editItem(i, 2)">
                 <ion-icon name="create-outline"></ion-icon>
               </ion-button>
-              <ion-button fill="clear" (click)="removeItem(i, 2)">
+              <ion-button fill="clear" (click)="removeItem(i, 2, item[1])">
                 <ion-icon name="trash-outline"></ion-icon>
               </ion-button>
             </div>
@@ -71,7 +71,10 @@
           </ion-item>
         </ion-list>
 
-        <ion-button class="addButton" type="submit">
+        <ion-button id="open-picker">Salvar</ion-button>
+        <ion-picker trigger="open-picker" [columns]="pickerColumns" [buttons]="pickerButtons"></ion-picker>
+
+        <ion-button id="addButton" type="submit">
           <ion-icon name="add" color="white"></ion-icon>
         </ion-button>
       </form>

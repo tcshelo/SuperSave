@@ -47,42 +47,42 @@
       <h2>Senha</h2>
       <p>Altere sua senha</p>
     </ion-label>
-    <ion-button fill="clear" slot="end" (click)="teste()" id="open-password-modal">
+    <ion-button fill="clear" slot="end" id="open-password-modal">
       <ion-icon name="create-outline"></ion-icon>
     </ion-button>
   </ion-item>
 
-  <!-- <ion-modal #modal trigger="open-password-modal">
+  <ion-modal #modal trigger="open-password-modal" id="password-modal">
     <ng-template>
       <ion-content>
         <ion-toolbar color="primary">
           <ion-title>Altere sua senha</ion-title>
           <ion-buttons slot="end">
-            <ion-button color="light" (click)="modal.dismiss()">X</ion-button>
+            <ion-button color="light" (click)="modalDismiss()">X</ion-button>
           </ion-buttons>
         </ion-toolbar>
         
         <ion-list>
           <ion-item>
             <ion-label position="stacked">Senha Atual</ion-label>
-            <ion-input type="password" placeholder="Digite sua senha atual"></ion-input>
+            <ion-input type="password" placeholder="Digite sua senha atual" [(ngModel)]="password"></ion-input>
           </ion-item>
-          
+
           <ion-item>
             <ion-label position="stacked">Nova Senha</ion-label>
-            <ion-input type="password" placeholder="Digite a nova senha"></ion-input>
+            <ion-input type="password" placeholder="Digite a nova senha" [(ngModel)]="newPassword"></ion-input>
           </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Confirmar Nova Senha</ion-label>
-            <ion-input type="password" placeholder="Confirme a nova senha"></ion-input>
+            <ion-input type="password" placeholder="Confirme a nova senha" [(ngModel)]="confirmNewPassword"></ion-input>
           </ion-item>
         </ion-list>
 
-        <ion-button expand="full" color="primary">Alterar Senha</ion-button>
+        <ion-button expand="full" color="primary" id="btnChangePassword" (click)="changePassword()">Confirmar</ion-button>
       </ion-content>
     </ng-template>
-  </ion-modal> -->
+  </ion-modal>
 
   <ion-item class="user-payment ion-align-items-end">
     <ion-label>
@@ -100,7 +100,7 @@
         <ion-toolbar color="primary">
           <ion-title>Altere seu salário</ion-title>
           <ion-buttons slot="end">
-            <ion-button color="light" (click)="modal.dismiss()">X</ion-button>
+            <ion-button color="light" (click)="modalDismiss()">X</ion-button>
           </ion-buttons>
         </ion-toolbar>
         
@@ -111,7 +111,7 @@
           </ion-item>
         </ion-list>
 
-        <ion-button expand="full" color="primary" (click)="changePayment">Confirmar</ion-button>
+        <ion-button color="clear" id="btnChangePayment" (click)="changePayment()">Confirmar</ion-button>
       </ion-content>
     </ng-template>
   </ion-modal>
@@ -121,11 +121,34 @@
       <h2>Avatar</h2>
       <p>Altere seu avatar</p>
     </ion-label>
-    <ion-button fill="clear" slot="end" (click)="teste()">
+    <ion-button fill="clear" slot="end" id="open-avatar-modal">
       <ion-icon name="create-outline"></ion-icon>
     </ion-button>
   </ion-item>
 </ion-content>
+
+<ion-modal #modal trigger="open-avatar-modal" id="avatar-modal">
+  <ng-template>
+    <ion-content scrollY="false">
+      <ion-toolbar color="primary">
+        <ion-title>Escolha um novo avatar</ion-title>
+        <ion-buttons slot="end">
+          <ion-button color="light" (click)="modalDismiss()">X</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      
+      <ion-grid class="center-content">
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="4" *ngFor="let avatar of avatars">
+            <ion-img [src]="avatar" (click)="selectAvatar(avatar)" [ngClass]="{ 'selected': avatar === selectedAvatar }"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button color="clear" id="btnChangeAvatar" (click)="changeAvatar()">Confirmar</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 
 <ion-button fill="clear" (click)="logout()">
   Sair

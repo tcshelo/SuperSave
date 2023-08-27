@@ -1,0 +1,64 @@
+<ion-content>
+  <ion-button fill="clear" class="btnBack" (click)="closeModal()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-button>
+
+  <form (ngSubmit)="addItem()">
+    <ion-grid class="ion-padding">
+      
+      <ion-row>
+        <!-- Coluna para o input de arquivo -->
+        <ion-col size="5">
+          <input 
+            id="wishFile" 
+            type="file" 
+            (click)="stopClickPropagation($event)" 
+            (change)="uploadImage($event)" 
+            accept="image/*"
+            name="uploadedImage"
+          >
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nome do Produto</ion-label>
+            <ion-input placeholder="Digite o nome do produto" name="productName" [(ngModel)]="productName" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nome da loja</ion-label>
+            <ion-input placeholder="Digite o nome da loja" name="storeName" [(ngModel)]="storeName" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating" required>Valor do Produto</ion-label>
+            <ion-input type="number" placeholder="Digite o valor do produto" name="productValue" [(ngModel)]="productValue"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Valor Guardado</ion-label>
+            <ion-input type="number" placeholder="Digite o valor guardado" name="savedValue" [(ngModel)]="savedValue"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button expand="full" type="submit" color="primary">
+      <ion-icon name="add-circle"></ion-icon> Adicionar
+    </ion-button>
+  </form>
+</ion-content>

@@ -103,6 +103,45 @@ ion-toolbar {
     font-weight: 300;
   }
 
+  #btnChangePayment {
+    display: flex;
+    color:#008158;
+    font-size: 20px;
+    padding-top: 20px;
+  }
+
   ion-modal ion-toolbar {
     --color: white;
+}
+
+#avatar-modal ion-grid {
+    display:flex;
+    flex-direction: column;
+    align-items: center
+}
+
+#avatar-modal ion-title {
+    font-size: 18px;
+}
+
+#avatar-modal ion-grid {
+    margin-top: 35px;
+    margin-left: 10px;
+}
+
+#avatar-modal ion-img {
+    width: 100px;
+    object-fit: cover;
+}
+
+#avatar-modal ion-img.selected {
+    border: 4px solid #ED6B6A;
+}
+
+#btnChangeAvatar {
+    color:#008158;
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
 }
